@@ -9,43 +9,39 @@
 
 Git was created by Linus Torvalds in 2005 for development of the Linux kernel, with other kernel developers contributing to its initial development. (See [A short history of Git](https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git))
 
-## Content
+## Table of contents
 
 1. [Download](#download)
 2. [Configuration](#configuration)
-2.1. [User credentials](#user_credentials)
-2.2. [Credentials helpers](#credentials_helpers)
-2.3. [Text editors](#text_editors)
-2.4. [Aliases](#aliases)
+    2.1. [User credentials](#user_credentials)
+    2.2. [Credentials helpers](#credentials_helpers)
+    2.3. [Text editors](#text_editors)
+    2.4. [Aliases](#aliases)
 3. [Getting started](#getting_started)
-3.1. [Create a new repository](#new_repository)
-3.2. [Checkout a repository](#checkout_repository)
-3.3. [Remote & Upstream](#remote_upstream)
-3.4. [Workflow](#workflow)
-3.5. [Add & Commit](#add_commit)
-3.6. [Pushing changes](#pushing_changes)
-3.7. [Branching](#branching)
-3.8. [Stash](#stash)
-3.9. [Update & Merge](#update_merge)
-3.10. [Rebase & Squash](#rebase_squash)
-3.11. [Tagging](#tagging)
-3.12. [Log](#log)
-3.13. [Reflog](#reflog)
-3.14 [Reset](#reset)
-
+    3.1. [Create a new repository](#new_repository)
+    3.2. [Checkout a repository](#checkout_repository)
+    3.3. [Remote & Upstream](#remote_upstream)
+    3.4. [Workflow](#workflow)
+    3.5. [Add & Commit](#add_commit)
+    3.6. [Pushing changes](#pushing_changes)
+    3.7. [Branching](#branching)
+    3.8. [Stash](#stash)
+    3.9. [Update & Merge](#update_merge)
+    3.10. [Rebase & Squash](#rebase_squash)
+    3.11. [Tagging](#tagging)
+    3.12. [Log](#log)
+    3.13. [Reflog](#reflog)
+    3.14 [Reset](#reset)
 4. [Git Flow](#git_flow)
-4.1. [Feature](#feature)
-4.2. [Release](#release)
-4.3. [Hotfix](#hotfix)
-4.4. [Git Flow vs Git](#git_flow_vs_git)
-
+    4.1. [Feature](#feature)
+    4.2. [Release](#release)
+    4.3. [Hotfix](#hotfix)
+    4.4. [Git Flow vs Git](#git_flow_vs_git)
 5. [Cherry-pick](#cherry_pick)
 6. [Tools](#tools)
-6.1. [Gitk](#gitk)
-6.2. [Diff/Merge tools](#diff_merge_tools)
-
+    6.1. [Gitk](#gitk)
+    6.2. [Diff/Merge tools](#diff_merge_tools)
 7. [References](#references)
-
 
 <div id='download'/>
 
@@ -181,7 +177,7 @@ when using a remote server, your command will be:
 You can use [git remote](https://git-scm.com/docs/git-remote) to manage set of tracked repositories
 
 <div>
-    <img src="images/clone-fork.png" alt="drawing"/>
+    <img src="images/clone-fork.png" alt="clone-fork"/>
 </div>
 List the current configured remote repository:
 
@@ -209,7 +205,7 @@ Now you are able to push your changes to the selected remote server. Git will cr
 Your local repository consists of three "trees" maintained by git. The first one is your `Working Directory` which holds the actual files. the second one is the `Index` which acts as a staging area and finally the `HEAD` which points to the last commit you've made.
 
 <div>
-    <img src="images/workflow.png" alt="drawing"/>
+    <img src="images/workflow.png" alt="workflow"/>
 </div>
 
 
@@ -231,6 +227,7 @@ You can propose changes (add it to the **Index**) using:
 |`$ git add -u`        | Stages modifications and deletions, without new files|
 
 This is the first step in the basic git workflow. To actually commit these changes use [git commit](https://git-scm.com/docs/git-commit):
+
 | Command              | Result                        |
 |----------------------|-------------------------------|
 |`$  git commit -m "commit message"`| Commit with message|
@@ -264,7 +261,7 @@ You can also manually **delete** the remote branch using:
 Branches are used to develop features isolated from each other. The ***master*** branch is the "default" branch when you create a repository. Use other branches for development and merge them back to the master branch upon completion.
 
 <div>
-    <img src="images/branches.png" alt="drawing"/>
+    <img src="images/branches.png" alt="branches"/>
 </div>
 
 
@@ -284,8 +281,8 @@ You can use [git stash ](https://git-scm.com/docs/git-stash) to stash the change
     $ git stash
 
 <div>
-    <img src="images/git-stash-example.png" alt="drawing"/>
-    <img src="images/git-stash.png" alt="drawing"/>
+    <img src="images/git-stash-example.png" alt="git-stash-example"/>
+    <img src="images/git-stash.png" alt="git-stash"/>
 </div>
 
 Git stash temporarily shelves (or _stashes_) changes you've made to your working copy so you can work on something else, and then come back and re-apply them later on.
@@ -323,6 +320,7 @@ To download all objects and refs from repository use [git fetch](https://git-scm
 To update your local repository to the newest commit, execute in your working directory to  fetch and merge remote changes (**`git fetch`** + **`git merge`**), use [git pull](https://git-scm.com/docs/git-pull):
 
     $ git pull
+
 >**Note**: Unfortunately, this is not always possible and results in _conflicts_. You are responsible to merge those _conflicts_ manually by editing the files shown by git. After changing, you need to mark them as merged with  
 `git add <filename>`  
 before merging changes, you can also preview them by using  
@@ -345,18 +343,22 @@ before merging changes, you can also preview them by using
 
 In Git, there are two main ways to integrate changes from one branch into another: the  `merge`  and the  `rebase`.
 
+
 <div>
-    <img src="images/merging.png" alt="drawing"/>
+    <img src="images/merging.PNG" alt="merging"/>
 </div>
+
 
     $ git checkout feature
     $ git rebase master
 
+
 <div>
-    <img src="images/rebasing.png" alt="drawing"/>
+    <img src="images/rebasing.PNG" alt="rebasing"/>
 </div>
 
- (See more about [Git Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing))
+
+(See more about [Git Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing))
 
 
 **Rewriting History**
@@ -448,9 +450,9 @@ Alternatively, you can **undo the  _git rebase_**  with
 It's recommended to create tags for software releases. This is a known concept, which also exists in SVN. You can create a new tag named 1.0.0 by executing [git tag](https://git-scm.com/docs/git-tag):
 
     $ git tab 1.0.0 
+
 You can also use:
   
-
     $ git tab 1.0.0 1b2e1d63ff
 
 The _1b2e1d63ff_ stands for the first 10 characters of the commit id you want to reference with your tag.
@@ -462,7 +464,9 @@ The _1b2e1d63ff_ stands for the first 10 characters of the commit id you want to
 You can study repository history using [git log](https://git-scm.com/docs/git-log):
 
     $  git log
+
 You can add a lot of parameters to make the log look like what you want:
+
 | Command              | Result                        |
 |----------------------|-------------------------------|
 |`$ git log --author=bob`|To see only the commits of a certain author|
@@ -474,15 +478,17 @@ You can add a lot of parameters to make the log look like what you want:
 To make life easier, you can can add a `git alias` so you don't have to remember the entire syntax:
 
 **lg1**
+
 <div>
-    <img src="images/lg1.png" alt="drawing"/>
+    <img src="images/lg1.PNG" alt="lg1"/>
 </div>
 
      $ git config --global alias.lg1 "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
 **lg2**
+
 <div>
-    <img src="images/lg2.png" alt="drawing"/>
+    <img src="images/lg2.PNG" alt="lg2"/>
 </div>
 
      $ git config --global alias.lg2 "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
@@ -514,7 +520,7 @@ You can use [git reset](https://git-scm.com/docs/git-reset)  to reset current HE
 
 
 <div>
-    <img src="images/git-reset.jpg" alt="drawing"/>
+    <img src="images/git-reset.jpg" alt="git-reset"/>
 </div>
 
 
@@ -523,7 +529,7 @@ You can use [git reset](https://git-scm.com/docs/git-reset)  to reset current HE
 
 `$ git checkout .` or `$ git checkout -- files` will only update the working tree, that is changes which have not yet been staged using git add.
 <div>
-    <img src="images/checkout-vs-reset.png" alt="drawing"/>
+    <img src="images/checkout-vs-reset.png" alt="checkout-vs-reset"/>
 </div>
 
 
@@ -574,8 +580,9 @@ Git includes git-flow from version 2.5.4. You can check your installed git-flow 
 [A comparison of using `git flow` commands versus raw `git` commands.](https://gist.github.com/JamesMGreene/cdd0ac49f90c987e45ac)
 <div id='workflow'/>
 
-## 5. Cherry-pick
+<div id='cherry_pick'/>
 
+## 5. Cherry-pick
 
 You can use [git cherry-pick](https://git-scm.com/docs/git-cherry-pick) to apply the changes introduced by some existing commits.
 
@@ -587,16 +594,16 @@ In case of conflict, you can continue the operation **after resolving them** usi
     
 or **cancel** the operation and return to the pre-sequence state using
 
-    $ git cherry-pick --abort.
+    $ git cherry-pick --abort
 
 Cherry picking is commonly discouraged in the developer community. The main reason is that it creates duplicate commits and you lose the ability to track the commit history.
 
 <div>
-    <img src="images/cherry-pick-1.png" alt="drawing"/>
+    <img src="images/cherry-pick-1.png" alt="cherry-pick-1"/>
 </div>
 
 <div>
-    <img src="images/cherry-pick-2.png" alt="drawing"/>
+    <img src="images/cherry-pick-2.png" alt="cherry-pick-2"/>
 </div>
 
 > "If you cherry pick, your branch model is wrong" (see [more](http://www.draconianoverlord.com/2013/09/07/no-cherry-picking.html))
